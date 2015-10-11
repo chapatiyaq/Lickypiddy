@@ -1,7 +1,7 @@
 <?php
 $no_session = true;
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/../public_html/includes/connect.php');
-require_once ($_SERVER['DOCUMENT_ROOT'] . '/../public_html/includes/functions.php');
+//require_once ($_SERVER['DOCUMENT_ROOT'] . '/../public_html/includes/connect.php');
+//require_once ($_SERVER['DOCUMENT_ROOT'] . '/../public_html/includes/functions.php');
 
 $expire = gmdate ('D, d M Y H:i:s \G\M\T', time() + 60);
 
@@ -11,7 +11,7 @@ header ("Expires: $expire");
 
 $hot_links = array ();
 
-$r = mysql_queryS ("SELECT * FROM wiki_hot ORDER BY hits DESC");
+/*$r = mysql_queryS ("SELECT * FROM wiki_hot ORDER BY hits DESC");
 while ($row = mysql_fetch_assoc ($r))
 {
 	$title = $row['title'];
@@ -29,6 +29,15 @@ while ($row = mysql_fetch_assoc ($r))
 			);
 		}
 	}
+}*/
+$wikis = array('starcraft2','dota2','starcraft','hearthstone','heroes','smash','counterstrike');
+foreach ($wikis as $wiki) {
+  for ($i = 1; $i <= 5; $i++) {
+    $hot_links[$wiki][] = array (
+      'title' => 'Link ' . $i,
+      'href' => 'http://wiki.teamliquid.net/' . $wiki . '/Main Page'
+    );
+  }
 }
 
 ?>

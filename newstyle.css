@@ -426,12 +426,13 @@ p {
 		width: 614px;
 		height: 809px;
 		margin: 0 auto;
+		text-align: center;
 	}
 	
 	.game-box { 
 		width: 297px; 
 		height:193px;
-		float:left;
+		display:inline-block;
 		margin:5px; 
 	} 
 	.game-box > p { 
